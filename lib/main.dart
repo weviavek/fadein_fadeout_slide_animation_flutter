@@ -36,17 +36,18 @@ class ImageAnimationWidgetState extends State<ImageAnimationWidget>
 
   @override
   void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     _animationController = AnimationController(
       vsync: this,
       duration:const Duration(seconds: 10),
     );
 
     _animationController.forward();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
     _animationController.addListener(() {
       if (_animationController.value > .2) {
           visible.value = true;
